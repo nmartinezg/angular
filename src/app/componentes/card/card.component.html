@@ -1,0 +1,7 @@
+
+{{categoria}}
+<div class="card" [ngClass]="{'boder-sombreado': FueSeleccionado}">
+  <app-header [titulo]="libro.titulo"></app-header>
+  <app-body [libro]="libro"></app-body>
+  <app-footer [paginas]="libro.numero_paginas" (OnSeleccionar)="seleccionado($event)"></app-footer>
+</div>

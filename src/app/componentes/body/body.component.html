@@ -1,0 +1,74 @@
+<!--<div class="card-body" [class]="evaluarBorder()">
+
+
+  <ul class="nav nav-pills" [ngSwitch]="libros[indice].tipo">
+    <li class="nav-item" *ngSwitchCase="'M'">
+      <button class="nav-link active" (click)="openModal(template)">
+        Mitologia
+      </button>
+    </li>
+
+    <li class="nav-item" *ngSwitchCase="'P'">
+      <button class="nav-link active" (click)="openModal(template)">
+        Poema
+      </button>
+    </li>
+
+    <li class="nav-item" *ngSwitchCase="'C'">
+      <button class="nav-link active" (click)="openModal(template)">
+        Cuento
+      </button>
+    </li>
+
+  </ul>
+
+
+
+
+
+  <h5 class="card-title" [ngStyle]="estilo">{{indiceMasIno()}} {{libros[indice].titulo}}</h5>
+  <p class="card-text">{{libros[indice].sinopsis}}</p>
+  <button class="btn btn-primary" (click)="Siguiente()">Go somewhere</button>
+
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <button class="nav-link active" href="#" *ngIf="libros[indice].gratuito">
+        <fa-icon [icon]="faMoneyBillAlt"></fa-icon>
+      </button>
+    </li>
+
+  </ul>
+
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <label *ngFor="let libro of libros; let indice = index">
+      Libro {{indice}} tiene como titulo {{libro.titulo}}
+
+    </label>
+  </div>
+</ng-template>
+
+-->
+
+<div class="card-body">
+  <h4>Descripcion</h4>
+  {{libro.descripcion}}
+  <h4>Sinopsis</h4>
+  {{libro.sinopsis}}
+
+  <h4>Fecha de Publicacion</h4>
+  <label>{{libro.fecha_publicacion | date: 'dd-MM-yyyy'}}</label>
+
+  <h4>Cantidad de Letras</h4>
+  <label>{{libro.sinopsis | cantidadLetras}}</label>
+
+
+</div>
