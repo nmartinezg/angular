@@ -75,13 +75,17 @@ export class AutoresComponent implements OnInit {
      */
     public agregarAutor() {
       if(this.formAutor.value.id){
-          for(let i=0; i<this.autores.length;i++)
+         let autor: Autor = this.formAutor.value;
+          this.as.actualizarAutor(autor).subscribe((respuesta:any)=>
           {
-            if(this.autores[i].id== this.formAutor.value.id){
-              this.autores[i]= this.formAutor.value;
-              this.msg="Se ha actualizaldo el autor";
+            for(let i=0; i<this.autores.length;i++)
+            {
+              if(this.autores[i].id== autor.id){
+                this.autores[i]= autor;
+                this.msg="Se ha actualizaldo el autor";
+              }
             }
-          }
+          });         
       }
       else
       {
