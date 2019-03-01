@@ -19,4 +19,8 @@ export class AutoresService {
     console.log("Creando");
     return this.http.post<Autor>(this.url + ".json", autor);
    }
+
+   public obtenerAutores(): Observable<any>{
+    return this.http.get<Autor>(this.url + ".json");
+   }
 }
