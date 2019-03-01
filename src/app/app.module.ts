@@ -35,15 +35,16 @@ import {HttpClientModule} from '@angular/common/http';
     CategoriasComponent,
     BotonComponent,
     MenusComponent,
-    AutorComponent,
-    HttpClientModule
+    AutorComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
     ModalModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

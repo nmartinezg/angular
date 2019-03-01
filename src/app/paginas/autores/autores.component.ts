@@ -4,12 +4,13 @@ import {autores }  from '../../datos/autores';
 import { FormGroup, FormControl } from '@angular/forms';
 import { formControlBinding } from '@angular/forms/src/directives/ng_model';
 import {Observable} from 'rxjs';
-
+import {AutoresService} from '../../servicios/autores.service';
 
 @Component({
   selector: 'app-autores',
   templateUrl: './autores.component.html',
-  styleUrls: ['./autores.component.scss']
+  styleUrls: ['./autores.component.scss'],
+  providers: [AutoresService]
 })
 export class AutoresComponent implements OnInit {
 
@@ -19,7 +20,7 @@ export class AutoresComponent implements OnInit {
   public msg:string;
   public data: Observable <number[]>;
 
-  constructor() { }
+  constructor(public as: AutoresService) { }
 
   ngOnInit() {
     console.log("Inicio");
@@ -57,6 +58,7 @@ export class AutoresComponent implements OnInit {
       apellido: new FormControl()
     });
 
+    
     this.msg= null;
   }
 
@@ -75,11 +77,19 @@ export class AutoresComponent implements OnInit {
       }
       else
       {
-        let _id:string= String(this.autores.length  +1 );
-        this.formAutor.patchValue({id: _id});
-        this.autores.push(this.formAutor.value);
-        this.msg="Se ha guardado el autor";
+        
+        let autor: Autor = this.formAutor.value;
+     
+        this.as.crear(autor).subscribe((respuesta: any)=>{
+          let _id:string= String(respuesta.name);
+          autor.id= _id;
+          this.autores.push(autor);
+          this.msg="Se ha guardado el autor";
+        });
+
       }
+
+
 
       this.formAutor=null;
     

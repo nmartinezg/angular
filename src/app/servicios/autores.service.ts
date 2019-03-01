@@ -16,6 +16,7 @@ export class AutoresService {
    }
 
    public crear(autor:Autor): Observable<any> {
-    return this.http.post<Autor>(this.url, autor);
+    console.log("Creando");
+    return this.http.post<Autor>(this.url + ".json", autor);
    }
 }
