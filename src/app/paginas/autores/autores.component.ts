@@ -131,8 +131,14 @@ ve" (click)="borarAutor(autor,indice)
    }
 
    public borarAutor(autor:Autor,indice:number) {
-     this.autores.splice(indice,1);
-     this.msg="Se ha borrado el autor";
+     
+
+     this.as.borrarAutor(autor.id).subscribe((respuesta: any) =>  {
+      this.autores.splice(indice,1);
+      this.msg="Se ha borrado el autor";
+     });
+
+   
   }
 
 }
