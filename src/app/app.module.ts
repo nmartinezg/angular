@@ -19,6 +19,7 @@ import { CategoriasComponent } from './paginas/categorias/categorias.component';
 import { BotonComponent } from './componentes/boton/boton.component';
 import { MenusComponent } from './paginas/menus/menus.component';
 import { AutorComponent } from './paginas/autor/autor.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AutorComponent } from './paginas/autor/autor.component';
     CategoriasComponent,
     BotonComponent,
     MenusComponent,
-    AutorComponent
+    AutorComponent,
+    HttpClientModule
   ],
   imports: [
     BrowserModule,
