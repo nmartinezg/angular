@@ -27,4 +27,8 @@ export class AutoresService {
    public borrarAutor(id): Observable<any> {
      return this.http.delete(this.url + '/' + id + '.json');
    }
+
+   public actualizarAutor(autor: Autor): Observable<any>{
+    return this.http.put(this.url + '/' + autor.id + '.json', autor);
+   }
 }
