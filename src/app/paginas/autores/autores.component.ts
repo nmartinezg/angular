@@ -14,7 +14,7 @@ import {AutoresService} from '../../servicios/autores.service';
 })
 export class AutoresComponent implements OnInit {
 
-  public autores: Autor[]= autores;
+  public autores: Autor[]= [];
   public formAutor:FormGroup;
 
   public msg:string;
@@ -41,13 +41,21 @@ export class AutoresComponent implements OnInit {
       }, 3000);
   });
 
-  let subscription = this.data.subscribe(
+  /*let subscription = this.data.subscribe(
       value => console.log(value),
       error => console.log(error),
       () => console.log("Termino")
-  );
+  ); */
 
   console.log("Terminó");
+    this.as.obtenerAutores().subscribe((respuesta: any)=>{
+      console.log(respuesta);
+      for (let atributo in respuesta){
+        let autor: Autor = respuesta[atributo];
+        autor.id= atributo;
+        this.autores.push(autor);
+      }
+    });
   }
 
   public nuevoAutor(){
